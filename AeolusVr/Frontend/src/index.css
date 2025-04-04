@@ -1,0 +1,9 @@
+@import "tailwindcss"; 
+
+:root {
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  line-height: 1.5;
+  /* font-weight: 400; */
+  font-style: normal;
+}
