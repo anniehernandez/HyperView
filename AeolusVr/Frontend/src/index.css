@@ -6,4 +6,7 @@
   line-height: 1.5;
   /* font-weight: 400; */
   font-style: normal;
+
+  --gradient-color: #39558E;
+  --background-color: #101828;
 }
