@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Home from './pages/Home'
+import Home from './Pages/Home';
 import './App.css'
 
 function App() {
@@ -10,7 +10,6 @@ function App() {
           <Route path="/" element={<Home/>}/>
         </Routes>
       </Router>
-      {/* <Home></Home> */}
     </>
   )
 }
