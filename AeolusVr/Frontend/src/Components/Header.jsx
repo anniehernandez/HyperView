@@ -19,7 +19,7 @@ function Header (){
                         <Link to={"/About_Us"}>
                             <li className="relative mx-10 my-2 cursor-pointer hover:underline">About Us</li>
                         </Link>
-                        <Link to={"/Projects/AeolusVr"}>
+                        <Link to={"/Projects/Aeolus_Vr"}>
                             <li className='relative mx-10 my-2 cursor-pointer hover:underline'>Projects</li>
                         </Link>
                         <Link to={"/Sign_Up"}>
