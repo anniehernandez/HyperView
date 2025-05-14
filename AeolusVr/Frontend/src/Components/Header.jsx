@@ -17,13 +17,13 @@ function Header (){
                 <div className='flex items-center justify-center text-sm text-regular'>
                     <ol className='flex flex-row mx-10'>
                         <Link to={"/About_Us"}>
-                            <li className="relative mx-10 cursor-pointer hover:underline">About Us</li>
+                            <li className="relative mx-10 my-2 cursor-pointer hover:underline">About Us</li>
                         </Link>
                         <Link to={"/Projects/AeolusVr"}>
-                            <li className='relative mx-10 cursor-pointer hover:underline'>Projects</li>
+                            <li className='relative mx-10 my-2 cursor-pointer hover:underline'>Projects</li>
                         </Link>
-                        <Link to={"/Sing_Up"}>
-                            <li className='relative mx-10 cursor-pointer hover:underline'>Sign Up</li>
+                        <Link to={"/Sign_Up"}>
+                            <li className='relative mx-10 my-2 cursor-pointer hover:underline'>Sign Up</li>
                         </Link>
                         {/* <li className="relative mx-10 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full">About Us</li> */}
                     </ol>
