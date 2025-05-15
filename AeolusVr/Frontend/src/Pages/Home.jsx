@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import HyperViewLogo from '../assets/HyperViewLogo.png';
 import AeolusVrLogo from '../assets/AeolusVrLogo.png';
 import Windows from '../assets/windows.jpg';
@@ -35,7 +36,9 @@ function Home(){
                                 specialized training, and rehabilitation in various areas.
                             </p>
 
-                            <button className="bg-blue-950 font-bold rounded-2xl py-2 px-5 cursor-pointer hover:bg-blue-900 focus:outline-2 focus:outline-offset-2 focus:outline-blue-950 active:bg-[var(--background-color)]">Learn More <ArrowForwardIosRoundedIcon/></button>
+                            <Link to="/About_Us">
+                                <button className="bg-blue-950 font-bold rounded-2xl py-2 px-5 cursor-pointer hover:bg-blue-900 focus:outline-2 focus:outline-offset-2 focus:outline-blue-950 active:bg-[var(--background-color)]">Learn More <ArrowForwardIosRoundedIcon/></button>
+                            </Link>
                         </div>
                         <img src={Windows} alt="" className="max-w-4/10 object-cover rounded-tr-[3vw]"/>
                     </div>
@@ -63,15 +66,18 @@ function Home(){
                                 Learn more about our latest project! From its origins as a safe alternative for hang-gliding flight training, to the 
                                 development process of this technology and the results we have achieved.
                             </p>
-                            <button className="bg-blue-500 font-bold rounded-2xl py-2 px-5 cursor-pointer hover:bg-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-blue-600">
-                                Learn More <ArrowForwardIosRoundedIcon/>
-                            </button>
+                            <Link to="/Projects/Aeolus_Vr">
+                                <button className="bg-blue-500 font-bold rounded-2xl py-2 px-5 cursor-pointer hover:bg-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-blue-600">
+                                    Learn More <ArrowForwardIosRoundedIcon/>
+                                </button>
+                            </Link>
                         </div>
                         <div className='flex flex-row justify-center items-center w-2/3'>
-                            <img src={Rectangle} alt="" className='h-full w-1/2 rounded-[2vw] m-3'/>
-                            <div className='flex flex-col justify-center items-center w-full h-full m-3'>
-                                <img src={Rectangle} alt="" className='h-2/3 object-cover rounded-[2vw] mb-3'/>
-                                <img src={Rectangle} alt="" className='h-1/3 w-full object-cover rounded-[2vw] mt-3'/>
+                            <div className='grid grid-cols-2 grid-rows-2 gap-5'>
+                                <img src={Rectangle} alt="" className='row-span-2 object-cover rounded-[2vw] h-full'/>
+                                <img src={Rectangle} alt="" className='col-span-1 object-cover rounded-[2vw]'/>
+                                <img src={Rectangle} alt="" className='col-span-1 object-cover rounded-[2vw]'/>
+                                
                             </div>
                         </div>
                     </div>
