@@ -5,10 +5,10 @@ import HyperViewLogo2 from '../assets/HyperViewLogo2.png'
 function Header (){
     return(
         <>
-            <div className="flex flex-row justify-between items-center fixed top-0 left-0 right-0 bg-gradient-to-b from-[var(--background-color)] to-[var(--gradient-color)] mix-blend-multiply py-3 px-30">
+            <div className="flex flex-row justify-between items-center fixed top-0 left-0 right-0 bg-gradient-to-b from-[var(--background-color)] to-[var(--gradient-color)] mix-blend-multiply py-3 px-30 z-50">
                 <img src={HyperViewLogo} alt="HyperView" className='h-10 cursor-pointer'/>
             </div>
-            <div className='flex flex-row justify-between items-center fixed top-0 left-0 right-0 py-3 px-30'>
+            <div className='flex flex-row justify-between items-center fixed top-0 left-0 right-0 py-3 px-30 z-50'>
 
               <Link to={"/"}>
                 <img src={HyperViewLogo} alt="HyperView" className='h-10 cursor-pointer'/>
