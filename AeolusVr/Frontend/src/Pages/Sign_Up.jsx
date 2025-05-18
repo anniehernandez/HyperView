@@ -3,8 +3,13 @@ import HyperViewLogo from '../assets/HyperViewLogo.png';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import Swal from 'sweetalert2';
+import { Sign_Up } from '../../Service_Client';
 
-function Sign_Up(){
+function SignUp(){
+    const [Email, setEmail] = useState();
+    const [FullName, setFullName] = useState();
+    const [CellPhone, setCellPhone] = useState();
     const [isChecked, setIsChecked] = useState(false);
 
     function handleCheckboxChange() {
@@ -14,6 +19,109 @@ function Sign_Up(){
             setIsChecked(true);
         }
     }
+
+    const handleSignUp = async () => {
+        let Notification_Status;
+        isChecked ? Notification_Status = 1 : Notification_Status = 0;
+
+        const response = await Sign_Up(Email, FullName, CellPhone, Notification_Status);
+
+        if (response.status === true){
+            console.log(response.message);
+
+            Swal.fire({
+                icon: "success",
+                title: "Succesful sign up!",
+                text: "We'll be in contact as soon as possible.",
+                customClass: {
+                    confirmButton: "text-white bg-blue-500 font-bold rounded-3xl cursor-pointer w-full py-2 px-6 m-2 hover:bg-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-blue-600"
+                },
+                buttonsStyling: false
+            });
+
+            setEmail('');
+            setFullName('');
+            setCellPhone('');
+            setCellPhone('');
+            setIsChecked(false);
+            document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
+        }else{
+            Swal.fire({
+                icon: "error",
+                title: "Error!",
+                text: "Something went wrong, try again.",
+                customClass: {
+                    confirmButton: "text-white bg-blue-500 font-bold rounded-3xl cursor-pointer w-full py-2 px-6 m-2 hover:bg-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-blue-600"
+                },
+                buttonsStyling: false
+            });
+        }
+    }
+
+    function validateFields(){
+        const emailRegExp = new RegExp('^[\\w.-]+@([\\w-]+\\.)+[\\w]{2,4}$');
+        const cellPhoneRegExp = new RegExp('^\\+\\d{2}-\\d{2}-\\d{4}-\\d{4}$');
+        
+        if(!Email || !FullName || !CellPhone){
+            Swal.fire({
+                icon: "error",
+                title: "Error!",
+                text: "Please fill out all fields.",
+                customClass: {
+                    confirmButton: "text-white bg-blue-500 font-bold rounded-3xl cursor-pointer w-full py-2 px-6 m-2 hover:bg-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-blue-600"
+                },
+                buttonsStyling: false
+            });
+            return;
+        }else{
+            if(!emailRegExp.test(Email) ){
+                Swal.fire({
+                    icon: "error",
+                    title: "Error!",
+                    text: "Invalid email.",
+                    customClass: {
+                        confirmButton: "text-white bg-blue-500 font-bold rounded-3xl cursor-pointer w-full py-2 px-6 m-2 hover:bg-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-blue-600"
+                    },
+                    buttonsStyling: false
+                });
+                return;
+            }else if(!cellPhoneRegExp.test(CellPhone)){
+                Swal.fire({
+                    icon: "error",
+                    title: "Error!",
+                    text: "Invalid phone number, check formating.",
+                    customClass: {
+                        confirmButton: "text-white bg-blue-500 font-bold rounded-3xl cursor-pointer w-full py-2 px-6 m-2 hover:bg-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-blue-600"
+                    },
+                    buttonsStyling: false
+                });
+                return;
+            }else{
+                handleSignUp();
+            }
+        }
+    }
+
+    function formatPhoneNumber(value) {
+        let cleaned = value.replace(/[^\d+]/g, '');
+        if (!cleaned.startsWith('+')) {
+            cleaned = '+' + cleaned.replace(/^\+/, '');
+        }
+        cleaned = cleaned.replace(/(?!^)\+/g, '');
+
+        let digits = cleaned.replace('+', '');
+
+        digits = digits.slice(0, 14);
+
+        let formatted = '+';
+        if (digits.length > 0) formatted += digits.slice(0, 2);
+        if (digits.length > 2) formatted += '-' + digits.slice(2, 4);
+        if (digits.length > 4) formatted += '-' + digits.slice(4, 8);
+        if (digits.length > 8) formatted += '-' + digits.slice(8, 12);
+
+        return formatted;
+    }
+
     return(
         <>
             <Header/>
@@ -39,17 +147,30 @@ function Sign_Up(){
                             
                             <div className='my-4'>
                                 <h3 className='font-bold'>Full name</h3>
-                                <input type="text" placeholder='Full Name' className='w-full border-b-2 border-blue-500/70 p-1 my-2 focus:outline-0 focus:border-blue-500'/>
+                                <input type="text" placeholder='Full Name'
+                                    onChange={e => setFullName(e.target.value)} 
+                                    className='w-full border-b-2 border-blue-500/70 p-1 my-2 focus:outline-0 focus:border-blue-500'
+                                />
                             </div>
 
                             <div className='my-4'>
                                 <h3 className='font-bold'>Email</h3>
-                                <input type="text" placeholder='Email' className='w-full border-b-2 border-blue-500/70 p-1 my-2 focus:outline-0 focus:border-blue-500'/>
+                                <input type="text" placeholder='Email' 
+                                    onChange={e => setEmail(e.target.value)}
+                                    className='w-full border-b-2 border-blue-500/70 p-1 my-2 focus:outline-0 focus:border-blue-500'
+                                />
                             </div>
                              
                             <div className='my-4'>
                                 <h3 className='font-bold'>Phone Number</h3>
-                                <input type="text" placeholder="00-0000-0000"className='w-full border-b-2 border-blue-500/70 p-1 my-2 focus:outline-0 focus:border-blue-500' />
+                                <input
+                                    type="text"
+                                    placeholder="+00-00-0000-0000"
+                                    value={CellPhone || ''}
+                                    onChange={e => setCellPhone(formatPhoneNumber(e.target.value))}
+                                    className='w-full border-b-2 border-blue-500/70 p-1 my-2 focus:outline-0 focus:border-blue-500'
+                                    maxLength={17}
+                                />
                             </div>
 
                             <div className='flex flex-row justify-center items-center my-4'>
@@ -71,7 +192,7 @@ function Sign_Up(){
                             </div>
                         </div>
 
-                        <button className="bg-blue-500 font-bold rounded-2xl cursor-pointer w-full py-2 m-2 hover:bg-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-blue-600 ">
+                        <button onClick={validateFields} className="bg-blue-500 font-bold rounded-2xl cursor-pointer w-full py-2 m-2 hover:bg-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-blue-600 ">
                             Sign Up
                         </button>
                     </div>
@@ -81,4 +202,4 @@ function Sign_Up(){
             <Footer/>
         </>
     )
-}export default Sign_Up;
+}export default SignUp;
