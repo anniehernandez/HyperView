@@ -1,4 +1,27 @@
-Run the following:
+FrontEnd:
 
-Material Ui:
+-Material Ui:
 npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+
+-Sweetalert2:
+npm install sweetalert2
+
+BackEnd:
+
+-Sequelize:
+npm install sequelize sqlite3
+
+-Express:
+npm install express
+
+-Express cors
+npm install cors
+
+-Dotenv
+npm install dotenv 
+
+-Axios
+npm install axios
+
+-MySql
+npm i mysql2
