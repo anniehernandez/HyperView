@@ -4,7 +4,7 @@ USE HyperView;
 CREATE TABLE `User`(
     Email VARCHAR(50) PRIMARY KEY NOT NULL,
     Full_Name VARCHAR(50) NOT NULL,
-    CellPhone INT,
+    CellPhone VARCHAR(20),
     Notification_Status BIT DEFAULT 0
 );
 CREATE TABLE `Message`(
@@ -13,3 +13,4 @@ CREATE TABLE `Message`(
     Full_Name VARCHAR(50) NOT NULL,
     Message_Content VARCHAR(600) NOT NULL
 );
+DROP TABLE `user`
