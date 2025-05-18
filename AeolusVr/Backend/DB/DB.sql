@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS HyperView;
+USE HyperView;
+
+CREATE TABLE `User`(
+    Email VARCHAR(50) PRIMARY KEY NOT NULL,
+    Full_Name VARCHAR(50) NOT NULL,
+    CellPhone INT,
+    Notification_Status BIT DEFAULT 0
+);
+CREATE TABLE `Message`(
+    MessageId SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    Email VARCHAR(50) NOT NULL,
+    Full_Name VARCHAR(50) NOT NULL,
+    Message_Content VARCHAR(600) NOT NULL
+);
