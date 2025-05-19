@@ -1,9 +1,10 @@
 import Windows from "../assets/windows.jpg";
-import Rectangle from "../assets/Rectangle.png";
 import Fcfm from "../assets/Fcfm.jpg";
 import Medicina from "../assets/Medicina.webp";
 import Exintor from "../assets/Extintor.jpeg";
 import Electric from "../assets/Electric.webp";
+import Scenery from '../assets/Scenery.png';
+import Map from '../assets/Map.jpeg';
 import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import GppGoodRoundedIcon from '@mui/icons-material/GppGoodRounded';
 import VideogameAssetRoundedIcon from '@mui/icons-material/VideogameAssetRounded';
@@ -12,7 +13,7 @@ import Header from "../Components/Header";
 import Contact_Us from "../Components/Contact_Us";
 import Objective from "../Components/Objective";
 import Goal from "../Components/Goal";
-import Project from "./Project";
+import Project from "../Components/Project";
 
 function About_Us(){
     return(
@@ -22,7 +23,7 @@ function About_Us(){
         <div className="h-screen flex flex-col justify-between">
             <div className="px-20 py-32 bg-blend-multiply bg-cover bg-center"
                 style={{ 
-                    backgroundImage: `linear-gradient(to bottom, rgba(13, 42, 84, 0.8), rgba(13, 42, 84, 0) 100%), url(${Windows})` 
+                    backgroundImage: `linear-gradient(to bottom, rgba(13, 42, 84, 0.8), rgba(13, 42, 84, 0) 100%), url(${Map})` 
                 }}
             >
                 <h3 className="text-4xl font-semibold">About Us</h3>
@@ -44,7 +45,7 @@ function About_Us(){
                             a medium beyond mere entertainment, implementing educational experiences, immersive tours, and, more recently, psychological therapies.
                         </p>
                     </div>
-                    <img src={Windows} alt="" className="max-w-4/10 object-cover rounded-tr-[3vw]"/>
+                    <img src={Scenery} alt="" className="max-w-4/10 max-h-120 object-cover rounded-tr-[3vw]"/>
                 </div>
             </div>
         </div>
