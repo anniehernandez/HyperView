@@ -2,7 +2,7 @@ import { useState } from 'react';
 import HyperViewLogo from '../assets/HyperViewLogo.png';
 import Footer from '../Components/Footer.jsx';
 import Swal from 'sweetalert2';
-import { Send_Message } from '../../Service_Client.js';
+import { Send_Message } from '../API/Service_Client.js';
 
 function Contact_Us(){
     const [Email, setEmail] = useState();
