@@ -9,7 +9,7 @@ function Footer(){
             <div className='bg-[var(--background-color)] px-30 text-sm'>
                     <div className='flex flex-row p-5'>
                         <div className='flex flex-col'>
-                            <h3 className='font-bold text-base'>About Us:</h3>
+                            <h3 className='font-bold text-base'>About Ussssssssssss:</h3>
                             <ol className='m-3'>
                                 <li className='m-2 cursor-pointer hover:underline'>Mision & Vision</li>
                                 <li className='m-2 cursor-pointer hover:underline'>Our Team</li>
@@ -17,7 +17,7 @@ function Footer(){
                         </div>
 
                         <div className='flex flex-col'>
-                            <h3 className='font-bold text-base'>Contact Us:</h3>
+                            <h3 className='font-bold text-base'>Contact Ussssssssssssss:</h3>
                             <ol className='m-3'>
                                 <li className='flex flex-row m-2 cursor-pointer hover:underline'><LocalPhoneRoundedIcon className='mr-2'/>00-0000-0000</li>
                                 <li className='flex flex-row m-2 cursor-pointer hover:underline'><EmailRoundedIcon className='mr-2'/>hyperview@gmail.com</li>
@@ -28,7 +28,7 @@ function Footer(){
                     <div className='border-b border-white'></div>
                     <div className='flex flex-row justify-between items-center p-5'>
                         <img src={HyperViewLogo} alt="HyperView Logo" className='h-8'/>
-                        @2025 HyperView.com All rights reserved.
+                        @2025 HyperView.com All rights reserved PRUEBAA.
                     </div>
             </div>
         </>
