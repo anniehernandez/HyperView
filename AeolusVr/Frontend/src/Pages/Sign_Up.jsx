@@ -4,7 +4,7 @@ import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Swal from 'sweetalert2';
-import { Sign_Up } from '../../Service_Client';
+import { Sign_Up } from "../API/Service_Client.js";
 
 function SignUp(){
     const [Email, setEmail] = useState();
